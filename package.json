@@ -16,18 +16,32 @@
   },
   "homepage": "https://github.com/Husamoa/Game-Tilde#readme",
   "devDependencies": {
+    "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^3.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "bootstrap": "^4.1.3",
     "html-webpack-plugin": "^3.2.0",
-    "path": "^0.12.7"
+    "jquery": "^3.3.1",
+    "path": "^0.12.7",
+    "popper.js": "^1.14.4",
+    "react-bootstrap": "^0.32.1",
+    "react-router-dom": "^4.3.1",
+    "reactstrap": "^6.3.1"
   }
 }
