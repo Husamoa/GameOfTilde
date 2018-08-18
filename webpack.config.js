@@ -1,54 +1,96 @@
-const webpack = require("webpack");
-const path = require('path');
+var path = require("path");
+var Html = require('html-webpack-plugin');
+var MiniCSS = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './src/index.html',
-    filename: 'index.html',
-    inject: 'body'
-});
 
-module.exports = {
-    mode: 'development',
-    entry: "./src/index.js",
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
-            },
-            {
-                test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/
-            },
-            {
-                test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/
-            },
-            //styles rule (*.scss, *.css)
-            {
-                test: /\.(scss|css)$/,
-                use: [
-                    {
-                        loader: "style-loader" // creates style nodes from JS strings
-                    },
-                    {
-                        loader: "css-loader" // translates CSS into CommonJS
-                    },
-                    {
-                        loader: "sass-loader" // compiles Sass to CSS
+module.exports = function (env) {
+    const isDev = env && env.dev ? true : false;
+    console.log(isDev, 'isDev');
+
+    const config = {
+        entry: "./src/main.jsx",
+        output: {
+            filename: "out.js",
+            path: path.resolve(__dirname, "docs")
+        },
+        mode: isDev ? 'development' : 'production',
+        module: {
+            rules: [
+                {
+                    test: /\.jsx$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
                     }
-                ]
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['*', '.js', '.jsx']
-    },
-    output: {
-        path: __dirname + "/dist",
-        filename: "bundle.js"
-    },
-    plugins: [HtmlWebpackPluginConfig]
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        isDev ? 'style-loader' : MiniCSS.loader,
+                        'css-loader'
+                    ]
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                        isDev ? 'style-loader' : MiniCSS.loader,
+                        'css-loader',
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: () => [
+                                    new require('autoprefixer')({
+                                        browsers: [
+                                            'ie 11' // tu definiujemy wsparcie dla przegladarek w css
+                                        ]
+                                    })
+                                ]
+                            }
+                        },
+                        'sass-loader'
+                    ]
+                },
+                {
+                    test: /\.(jpg|jpeg|gif|png|csv)$/,
+                    use: {
+                        loader: 'file-loader?outputPath=images/',
+                        options: {
+                            name: '[name].[ext]',
+                            useRelativePath: true
+                        }
+                    }
+                },
+                {
+                    test: /\.(eot|ttf|woff|woff2)$/,
+                    use: {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            publicPath: 'fonts',
+                            outputPath: 'fonts'
+                        }
+                    }
+                }
+            ]
+        },
+        resolve: {
+            extensions: ['*', '.js', '.jsx']
+        },
+        plugins: [
+            new Html({
+                filename: 'index.html',
+                template: './src/index.html'
+            }),
+            new MiniCSS({
+                filename: "app.css", // definiujemy adres pliku css
+            }),
+            new CopyWebpackPlugin([
+                {from: './src/images', to: 'images'},
+            ])
 
-};
+        ]
+    }
+
+    return config;
+}

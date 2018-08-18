@@ -1,47 +1,42 @@
 {
-  "name": "game-tilde",
+  "name": "1_projekt",
   "version": "1.0.0",
-  "description": "Final project for Coders Lab",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --env.dev --inline --hot"
   },
-  "repository": "git+https://github.com/Husamoa/Game-Tilde.git",
-  "author": "Paweł Białek",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Husamoa/Game-Tilde/issues"
-  },
-  "homepage": "https://github.com/Husamoa/Game-Tilde#readme",
   "devDependencies": {
-    "autoprefixer": "^8.2.0",
+    "autoprefixer": "^8.4.1",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.11",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.8.3",
-    "postcss-loader": "^3.0.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
     "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.3",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "style-loader": "^0.21.0",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
-    "html-webpack-plugin": "^3.2.0",
-    "jquery": "^3.3.1",
-    "path": "^0.12.7",
+    "jquery": "^1.9.1",
     "popper.js": "^1.14.4",
-    "react-bootstrap": "^0.32.1",
-    "react-router-dom": "^4.3.1",
-    "reactstrap": "^6.3.1"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1"
   }
 }
