@@ -1,12 +1,13 @@
 {
   "name": "gameoftilde",
   "version": "1.0.0",
-  "description": "Final project for Coders Lab",
+  "description": "Final project for Coders Lab School",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --env.dev --inline --hot"
+    "start": "webpack-dev-server --env.dev --inline --hot",
+    "server": "./node_modules/.bin/json-server db.json --watch --static=docs & webpack --mode development --watch"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +35,7 @@
   "dependencies": {
     "bootstrap": "^4.1.3",
     "jquery": "^1.9.1",
+    "json-server": "^0.14.0",
     "popper.js": "^1.14.4",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

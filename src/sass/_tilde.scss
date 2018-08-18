@@ -1,93 +1,6 @@
-$birdColor: #11e7d7;
-$birdColor2: #31bfae;
-$birdColor3: #01c7be;
-$feetColor: #f8c14d;
-$beakColor: #f7d35d;
-$beakColor2: #eb9f2d;
-
-$birdColor3: #01c7be;
-
-// Storyboard Timeline
-$timeline: (
-        'begin'         : 0s,
-        'eye-p0-1'      : 0.4s,
-        'eye-p1-1'        : 0.4s,
-        'eye-p4-1'      : 1.8s,
-        'eye-p3-1'      : 0.4s,
-        'eye-p4-2'      : 1s,
-        'eye-p2-1'      : 0.1s,
-        'end'           : 0.4s
-);
-
-
-// $totaltime:                      Total of all timecodes in $timeline
-// $timelineAccumulated:    Accumulated timeline map based on $timeline
-$totaltime: 0s;
-$timelineAccumulated: ();
-@each $key, $time in $timeline {
-  $totaltime: $totaltime + $time;
-  $timelineAccumulated: map-merge($timelineAccumulated, ($key : $totaltime) );
-}
-
-// Timecode to Percent function
-// Params:
-//  $key:           key/position in timeline
-//  $offset:    optional offset to add to time from timeline (use negative number to subtract)
-// Return:      Percentage value of keyposition in timeline.
-@function tp($key, $offset: 0s) {
-  @return (map-get($timelineAccumulated, $key) + $offset) / $totaltime * 100%;
-}
-
-
-@keyframes eyes {
-  #{tp('begin')},
-  #{tp('eye-p0-1')},
-  #{tp('end')} {
-    top: -50px;
-  }
-  #{tp('eye-p1-1')} {
-    top: -45px;
-  }
-  #{tp('eye-p2-1')} {
-    top: -20px;
-  }
-  #{tp('eye-p4-1')},
-  #{tp('eye-p4-2')} {
-    top: -15px;
-  }
-  #{tp('eye-p3-1')} {
-    top: -25px;
-  }
-}
-@keyframes wings {
-  #{tp('begin')},
-  #{tp('eye-p4-2')},
-  #{tp('end')} {
-    top: 70px;
-  }
-  #{tp('eye-p2-1')} {
-    top: 60px;
-  }
-}
-
-@keyframes feet {
-  #{tp('begin')},
-  #{tp('eye-p4-2')},
-  #{tp('end')} {
-    top: -2px;
-  }
-  #{tp('eye-p2-1')} {
-    top: 0px;
-  }
-}
-@keyframes cloud {
-  0% {
-    left: -140px;
-  }
-  100% {
-    left: 280px;
-  }
-}
+$colorEye: #f8c14d;
+$colorTilde: #f7d35d;
+$colorTilde2: #eb9f2d;
 
 .globe {
   margin: 1em 0 0 0;
@@ -109,37 +22,19 @@ $timelineAccumulated: ();
       height: 186px;
       border-radius: 50%;
       background-clip: padding-box;
-      background-color: $birdColor;
+      background-color: $colorTilde;
       box-shadow: inset 0 0 80px rgba(0, 0, 0, .3);
-      &:before, &:after {
-        position: absolute;
-        content: "";
-        z-index: -1;
-        width: 26px;
-        height: 93px;
-        border-radius: 50%;
-        background-color: $birdColor;
-        box-shadow: inset 0 0 13px rgba(0, 0, 0, .3);
-        top: 70px;
-        animation: wings $totaltime linear infinite;
-      }
-      &:before {
-        left: 0;
-      }
-      &:after {
-        right: 0;
-      }
       .eye {
         position: absolute;
         z-index: 1;
         overflow: hidden;
         width: 56px;
         height: 56px;
-        top: 28px;
+        top: 45px;
         border-radius: 50%;
         background-color: #fff;
-        border: 1px solid $birdColor3;
-        box-shadow: inset 0 0 0 1px $birdColor3;
+        border: 1px solid $colorTilde;
+        box-shadow: inset 0 0 0 1px $colorTilde2;
         &:before, &:after {
           position: absolute;
           content: "";
@@ -157,9 +52,8 @@ $timelineAccumulated: ();
           background: radial-gradient(ellipse at center,
                   rgba(109, 0, 25, 0) 0%,
                   rgba(130, 1, 31, 0) 35%,
-                  $birdColor3 36%,
-                  $birdColor2 100%);
-          animation: eyes $totaltime linear infinite;
+                  $colorTilde 36%,
+                  $colorTilde2 100%);
         }
         &.left {
           left: 15px;
@@ -187,10 +81,10 @@ $timelineAccumulated: ();
         z-index: 1;
         width: 41px;
         height: 55px;
-        top: 70px;
+        top: 90px;
         left: 67px;
         border-radius: 50%;
-        background-color: $birdColor2;
+        background-color: $colorTilde;
         &:before {
           position: absolute;
           content: "";
@@ -198,7 +92,7 @@ $timelineAccumulated: ();
           height: inherit;
           top: 2px;
           border-radius: 50%;
-          background: $beakColor2;
+          background: $colorTilde2;
         }
         &:after {
           position: absolute;
@@ -209,7 +103,7 @@ $timelineAccumulated: ();
           top: 12px;
           left: 2px;
           border-radius: 50%;
-          background: $birdColor2;
+          background: $colorTilde;
         }
         div {
           position: absolute;
@@ -219,7 +113,7 @@ $timelineAccumulated: ();
           left: -1px;
           border-radius: 50% 60% 50% 40%;
           background-clip: padding-box;
-          background-color: $beakColor;
+          background-color: $colorTilde2;
           transform: rotate(-45deg);
           &:before {
             position: absolute;
@@ -232,27 +126,6 @@ $timelineAccumulated: ();
             border-radius: 50%;
             background-color: #fff;
           }
-        }
-      }
-      .feet {
-        position: absolute;
-        bottom: 15px;
-        width: 100%;
-        &:before, &:after {
-          position: absolute;
-          content: "";
-          width: 27px;
-          height: 21px;
-          border-radius: 50%;
-          background-color: $feetColor;
-          box-shadow: inset 0 0 12px rgba(0, 0, 0, .2);
-          animation: feet $totaltime linear infinite;
-        }
-        &:before {
-          left: 40px;
-        }
-        &:after {
-          right: 40px;
         }
       }
     }
