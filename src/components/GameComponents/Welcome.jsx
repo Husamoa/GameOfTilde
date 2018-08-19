@@ -1,7 +1,15 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 
-import TildeAvatar from "./TildeAvatar";
+import {setUserSessionID} from './UserSession';
+import {getUserSessionID} from './UserSession';
+import {updateSession} from "./UserSession";
+import {createNewSession} from './UserSession'
+import {loadOrCreateNewSession} from './UserSession'
+import Cookie from "js-cookie";
+
+getUserSessionID('SessionID');
+
 
 export default class Welcome extends Component {
     constructor(props) {
@@ -10,8 +18,19 @@ export default class Welcome extends Component {
             visible: false,
             name: '',
             alert: '',
-            alertClass: ''
+            alertClass: '',
+            sessionId: null
         };
+    }
+
+    componentDidMount() {
+        loadOrCreateNewSession().then(session => {
+            this.setState({
+                name: session.name,
+                sessionId: session.id,
+                visible: !!session.name
+            })
+        })
     }
 
     onChangeName = (e) => {
@@ -20,16 +39,18 @@ export default class Welcome extends Component {
         })
     };
 
-    onSubmit = (e) => {
+    onSubmit = () => {
         if (!this.state.name.length) {
             this.setState({
                 alert: 'Pole imię musi być wypełnione',
                 alertClass: 'alert alert-danger'
-            })
+            });
         } else {
             this.setState({
                 visible: true
             });
+            // updateSession(this.state.name);
+
         }
 
     };
@@ -40,6 +61,7 @@ export default class Welcome extends Component {
             ><button className="btn btn-lg btn-success my-btn-success m-5" type="button">Zaczynamy!</button></Link></div> :
             <div className={this.state.alertClass}>{this.state.alert}</div>;
         return (
+
             <Fragment>
                 <div className='jumbotron text-center'>
                     <h1 className='h1'> Witaj w Game Of Tilde! </h1>
@@ -50,6 +72,7 @@ export default class Welcome extends Component {
                             <span className="input-group-text" id="inputGroup-sizing-lg">Wpisz swoje imię</span>
                         </div>
                         <input type="text" className="form-control" aria-label="Large"
+                               value={ this.state.name }
                                aria-describedby="inputGroup-sizing-sm" onChange={this.onChangeName}/>
                         <div className="input-group-append">
                             <button onClick={() => this.onSubmit()} className="btn btn-outline-secondary"
@@ -61,7 +84,6 @@ export default class Welcome extends Component {
                         {hello}
                     </div>
                 </div>
-
             </Fragment>
 
         );

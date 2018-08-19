@@ -25,5 +25,16 @@
       "question": "zadanie 5",
       "answer": "odpowiedz 5"
     }
+  ],
+  "sessions": [
+    {
+      "id": "SessionID-jl0yxixd",
+      "progress": {
+        "finishedLevels": [
+          1,
+          2
+        ]
+      }
+    }
   ]
 }
