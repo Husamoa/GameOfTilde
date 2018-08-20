@@ -28,13 +28,11 @@
   ],
   "sessions": [
     {
-      "id": "SessionID-jl0yxixd",
+      "id": "SessionID-jl2mf0rw",
       "progress": {
-        "finishedLevels": [
-          1,
-          2
-        ]
-      }
+        "finishedLevels": []
+      },
+      "name": "piotr zych"
     }
   ]
 }

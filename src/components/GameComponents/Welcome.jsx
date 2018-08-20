@@ -49,16 +49,29 @@ export default class Welcome extends Component {
             this.setState({
                 visible: true
             });
-            // updateSession(this.state.name);
-
+            loadOrCreateNewSession().then(data => {
+                data.name = this.state.name;
+                updateSession(data)
+            });
         }
 
     };
 
+
+
+    handleKeyPress = e => {
+        if (e.charCode === 13) {
+            this.onSubmit()
+        }
+    };
+
     render() {
         const hello = this.state.visible ?
-            <div className='m-4'><h1 className='h1'>Cześć {this.state.name}! Bedziesz grał w gre! </h1><Link to='/levels-progress'
-            ><button className="btn btn-lg btn-success my-btn-success m-5" type="button">Zaczynamy!</button></Link></div> :
+            <div className='m-4'><h1 className='h1'>Cześć <span className='text-capitalize'>{this.state.name}</span>!
+                Bedziesz grał w gre! </h1><Link
+                to='/levels-progress'>
+                <button className="btn btn-lg btn-success my-btn-success m-5" type="button">Zaczynamy!</button>
+            </Link></div> :
             <div className={this.state.alertClass}>{this.state.alert}</div>;
         return (
 
@@ -67,13 +80,15 @@ export default class Welcome extends Component {
                     <h1 className='h1'> Witaj w Game Of Tilde! </h1>
                 </div>
                 <div className='container text-center'>
-                    <div className="input-group input-group-lg">
+                    <div className="input-group">
                         <div className="input-group-prepend">
-                            <span className="input-group-text" id="inputGroup-sizing-lg">Wpisz swoje imię</span>
+                            <span className="input-group-text" id="inputGroup-sizing-lg">Nazwa gracza</span>
                         </div>
                         <input type="text" className="form-control" aria-label="Large"
-                               value={ this.state.name }
-                               aria-describedby="inputGroup-sizing-sm" onChange={this.onChangeName}/>
+                               value={this.state.name}
+                               aria-describedby="inputGroup-sizing-sm" onKeyPress={this.handleKeyPress}
+                               onChange={this.onChangeName}
+                               ref={input => input && input.focus()}/>
                         <div className="input-group-append">
                             <button onClick={() => this.onSubmit()} className="btn btn-outline-secondary"
                                     type="button">Potwierdź
@@ -84,6 +99,7 @@ export default class Welcome extends Component {
                         {hello}
                     </div>
                 </div>
+
             </Fragment>
 
         );
