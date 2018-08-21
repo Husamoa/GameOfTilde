@@ -7,6 +7,7 @@ import {updateSession} from "./UserSession";
 import {createNewSession} from './UserSession'
 import {loadOrCreateNewSession} from './UserSession'
 import Cookie from "js-cookie";
+import TildeAvatar from "./TildeAvatar";
 
 getUserSessionID('SessionID');
 
@@ -58,7 +59,6 @@ export default class Welcome extends Component {
     };
 
 
-
     handleKeyPress = e => {
         if (e.charCode === 13) {
             this.onSubmit()
@@ -74,34 +74,34 @@ export default class Welcome extends Component {
             </Link></div> :
             <div className={this.state.alertClass}>{this.state.alert}</div>;
         return (
-
-            <Fragment>
-                <div className='jumbotron text-center'>
-                    <h1 className='h1'> Witaj w Game Of Tilde! </h1>
-                </div>
-                <div className='container text-center'>
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" id="inputGroup-sizing-lg">Nazwa gracza</span>
+            <div className='welcome-style'>
+                <Fragment>
+                    <div className='title text-center'>
+                        <h1 className='h1'> Witaj w Game Of Tilde! </h1>
+                    </div>
+                    <div className='container text-center'>
+                        <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" id="inputGroup-sizing-lg">Nazwa gracza</span>
+                            </div>
+                            <input type="text" className="form-control" aria-label="Large"
+                                   value={this.state.name}
+                                   aria-describedby="inputGroup-sizing-sm" onKeyPress={this.handleKeyPress}
+                                   onChange={this.onChangeName}
+                                   ref={input => input && input.focus()}/>
+                            <div className="input-group-append">
+                                <button onClick={() => this.onSubmit()} className="btn btn-success"
+                                        type="button">Potwierdź
+                                </button>
+                            </div>
                         </div>
-                        <input type="text" className="form-control" aria-label="Large"
-                               value={this.state.name}
-                               aria-describedby="inputGroup-sizing-sm" onKeyPress={this.handleKeyPress}
-                               onChange={this.onChangeName}
-                               ref={input => input && input.focus()}/>
-                        <div className="input-group-append">
-                            <button onClick={() => this.onSubmit()} className="btn btn-outline-secondary"
-                                    type="button">Potwierdź
-                            </button>
+                        {/*<TildeAvatar/>*/}
+                        <div className='m-5'>
+                            {hello}
                         </div>
                     </div>
-                    <div className='m-5'>
-                        {hello}
-                    </div>
-                </div>
-
-            </Fragment>
-
+                </Fragment>
+            </div>
         );
     }
 }

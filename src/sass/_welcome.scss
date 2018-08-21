@@ -1,6 +1,14 @@
+html, body {
+  height: 100%;
+}
 .my-btn-success {
-  height: 100px;
-  width: 300px;
   border-radius: 1.5rem !important;
   font-size: 30px !important;
+}
+
+.title {
+  height: 30vh;
+  text-align: center;
+  padding-top: 15vh;
+  color: aliceblue;
 }

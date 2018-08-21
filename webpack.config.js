@@ -75,7 +75,10 @@ module.exports = function (env) {
             ]
         },
         resolve: {
-            extensions: ['*', '.js', '.jsx']
+            extensions: ['*', '.js', '.jsx'],
+            // alias: {
+            //     'react-sound': __dirname + './src'
+            // }
         },
         plugins: [
             new Html({
