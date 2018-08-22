@@ -43,8 +43,11 @@
     {
       "id": "SessionID-jl50wbx3",
       "progress": {
-        "finishedLevels": []
-      }
+        "finishedLevels": [
+          1
+        ]
+      },
+      "name": "paweł"
     }
   ]
 }
