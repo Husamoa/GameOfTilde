@@ -11,19 +11,19 @@ import MusicGame from './GameComponents/MusicGame'
 export default class Game extends Component {
     render() {
         return (
-            <div className='game-style'>
-                <Fragment>
+            <Fragment>
+                <div className='game-style'>
                     <MusicGame/>
-                    <HashRouter>
-                        <Switch>
-                            <Route exact path='/' component={Welcome}/>
-                            <Route path='/levels-progress' component={LevelsProgress}/>
-                            <Route path='/level/:id' component={Level}/>
-                            <Route path='/end-of-game' component={EndOfGame}/>
-                        </Switch>
-                    </HashRouter>
-                </Fragment>
-            </div>
+                        <HashRouter>
+                            <Switch>
+                                <Route exact path='/' component={Welcome}/>
+                                <Route path='/levels-progress' component={LevelsProgress}/>
+                                <Route path='/level/:id' component={Level}/>
+                                <Route path='/end-of-game' component={EndOfGame}/>
+                            </Switch>
+                        </HashRouter>
+                </div>
+            </Fragment>
         );
     }
 }
