@@ -34,7 +34,7 @@ export default class Music extends Component {
     };
 
     pause = () => {
-        this.setState({play: false, pause: true, buttonIcon: 'volume-off',                 tooltipText: 'włącz muzykę'});
+        this.setState({play: false, pause: true, buttonIcon: 'volume-off', tooltipText: 'włącz muzykę'});
         this.audio.pause();
     };
 

@@ -13,7 +13,7 @@ export default class Game extends Component {
         return (
             <Fragment>
                 <div className='game-style'>
-                    <MusicGame/>
+                    {/*<MusicGame/>*/}
                         <HashRouter>
                             <Switch>
                                 <Route exact path='/' component={Welcome}/>

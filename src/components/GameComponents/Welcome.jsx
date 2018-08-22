@@ -1,13 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 
-import {setUserSessionID} from './UserSession';
 import {getUserSessionID} from './UserSession';
 import {updateSession} from "./UserSession";
-import {createNewSession} from './UserSession'
 import {loadOrCreateNewSession} from './UserSession'
-import Cookie from "js-cookie";
-import TildeAvatar from "./TildeAvatar";
 
 getUserSessionID('SessionID');
 
@@ -43,7 +39,7 @@ export default class Welcome extends Component {
     onSubmit = () => {
         if (!this.state.name.length) {
             this.setState({
-                alert: 'Pole imię musi być wypełnione',
+                alert: 'Pole nazwa gracza musi być wypełnione',
                 alertClass: 'alert alert-danger'
             });
         } else {
