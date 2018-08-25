@@ -1,7 +1,19 @@
 .my-level-progress-style {
   display: flex;
   flex-direction: column;
-  a {
-
+  height: 50vh;
+  p {
+    background-color: blue;
+    a {
+      color: aliceblue;
+      padding: 10px;
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: aliceblue;
+      a{
+        color: blue;
+      }
+    }
   }
 }

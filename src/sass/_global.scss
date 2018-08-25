@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 @font-face {
   font-family: myFont;
   src: url('../fonts/joystix.ttf');
@@ -8,17 +12,14 @@
 }
 
 .game-style {
-  height: 100vh !important;
-  width: 100vw !important;
+  min-height: 100vh !important;
+  min-width: 100vw !important;
   background: url('../images/background-game-of-tilde.jpg') green no-repeat;
   background-size: cover;
   font-family: myFont, sans-serif;
   animation-name: appear;
   animation-timing-function: steps(4);
   animation-duration: 1s;
-  .row {
-    height: 100vh !important;
-  }
 }
 
 .appear {
@@ -34,4 +35,11 @@ ul {
     display: flex;
     margin: 10px;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  min-height: 100vh !important;
+  min-width: 100vw !important;
+  background: url('../images/background-game-of-tilde.jpg');
+  background-size: auto;
 }

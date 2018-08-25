@@ -4,7 +4,7 @@ import {HashRouter, Route, Switch} from "react-router-dom";
 import Welcome from './GameComponents/Welcome';
 import LevelsProgress from './GameComponents/LevelsProgress';
 import EndOfGame from './GameComponents/EndOfGame';
-import Level from './LevelsComponents/Levels';
+import Level from './GameComponents/Levels';
 import MusicGame from './GameComponents/MusicGame'
 
 

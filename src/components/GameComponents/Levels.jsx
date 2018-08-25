@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 
-import { updateSession, loadOrCreateNewSession } from "../GameComponents/UserSession";
+import { updateSession, loadOrCreateNewSession } from "./UserSession";
 
 
 export default class Levels extends Component {

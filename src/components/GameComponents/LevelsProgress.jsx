@@ -32,8 +32,8 @@ export default class LevelsProgress extends Component {
         return (
             <Fragment>
                 <div className="appear container">
-                    <div className="row h-100 p-5">
-                        <div className="col-sm-3 align-self-end">
+                    <div className="row">
+                        <div className="col-sm-3 align-self-center">
                             <div className='avatar'>
                                 <img className="avatar-sad" src="./../../images/pixel-girl-sad.png" />
                                 <img className="avatar-happy" src="./../../images/pixel-girl-happy.png" />
@@ -47,9 +47,9 @@ export default class LevelsProgress extends Component {
                                     pomoc. Razem na pewno nam się uda. W drogę! </p>
                             </div>
                         </div>
-                        <div className="col-sm-3 justify-content-center">
-                            <div>
-                                <p className='my-level-progress-style p-5 text-center'>{this.getAvailableLevels().map((levelNum) => {
+                        <div className="col-sm-3">
+                            <div className='my-level-progress-style justify-content-center'>
+                                <p className='align-self-center text-center'>{this.getAvailableLevels().map((levelNum) => {
                                     return <Link key={levelNum} to={`/level/${levelNum}`}> Zadanie {levelNum} </Link>
                                 })}</p>
                             </div>
