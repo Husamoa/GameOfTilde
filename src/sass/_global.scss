@@ -13,6 +13,18 @@
   background: url('../images/background-game-of-tilde.jpg') green no-repeat;
   background-size: cover;
   font-family: myFont, sans-serif;
+  animation-name: appear;
+  animation-timing-function: steps(4);
+  animation-duration: 1s;
+  .row {
+    height: 100vh !important;
+  }
+}
+
+.appear {
+  animation-name: appear;
+  animation-timing-function: steps(4);
+  animation-duration: 1s;
 }
 
 ul {

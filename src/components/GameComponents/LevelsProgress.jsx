@@ -31,14 +31,17 @@ export default class LevelsProgress extends Component {
 
         return (
             <Fragment>
-                <div className="container">
+                <div className="appear container">
                     <div className="row h-100 p-5">
-                        <div className="col-sm-3">
-
+                        <div className="col-sm-3 align-self-end">
+                            <div className='avatar'>
+                                <img className="avatar-sad" src="./../../images/pixel-girl-sad.png" />
+                                <img className="avatar-happy" src="./../../images/pixel-girl-happy.png" />
+                            </div>
                         </div>
                         <div className="col-sm-6 justify-content-center">
-                            <div className='align-content-center'>
-                                <p className='p-5'>Cześć {this.state.name}, jestem Tilde. Tata schował mi wszystkie
+                            <div className='avatar-say'>
+                                <p>Cześć {this.state.name}, jestem Tilde. Tata schował mi wszystkie
                                     cukierki. Mój tata jest bardzo dowcipny i powiedział, że będę mogła je zjeść, jesli
                                     rozwiążę wszystkie zagadki, które przygotował. Ale ja jestem sprytna i znalazłam
                                     pomoc. Razem na pewno nam się uda. W drogę! </p>

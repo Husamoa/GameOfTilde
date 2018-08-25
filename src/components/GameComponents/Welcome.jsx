@@ -63,7 +63,7 @@ export default class Welcome extends Component {
 
     render() {
         const hello = this.state.visible ?
-            <div className='m-4'><h1 className='h1'>Cześć <span className='text-capitalize'>{this.state.name}</span>!
+            <div className='appear m-4'><h1 className='h1'>Cześć <span className='text-capitalize'>{this.state.name}</span>!
                 Bedziesz grał w gre! </h1><Link
                 to='/levels-progress'>
                 <button className="btn btn-lg btn-success my-btn-success m-5" type="button">Zaczynamy!</button>

@@ -1,8 +1,12 @@
 // Import global style
 @import "global";
 
+//Import animation style
+@import "animations";
+
 // Import avatar style
 @import "tilde";
+@import "avatar";
 
 //Import GameComponents style
 @import "welcome";
