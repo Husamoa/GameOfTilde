@@ -1,17 +1,17 @@
 .my-level-progress-style {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
   p {
-    background-color: blue;
+    height: 50vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     a {
       color: aliceblue;
-      padding: 10px;
       text-decoration: none;
-    }
-    &:hover {
-      background-color: aliceblue;
-      a{
+      background-color: blue;
+      margin-bottom: 5vh;
+      &:hover {
+        background-color: aliceblue;
         color: blue;
       }
     }

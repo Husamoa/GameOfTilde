@@ -28,23 +28,11 @@
   ],
   "sessions": [
     {
-      "id": "SessionID-jl2mf0rw",
-      "progress": {
-        "finishedLevels": []
-      },
-      "name": "piotr zych"
-    },
-    {
-      "id": "SessionID-jl462owf",
-      "progress": {
-        "finishedLevels": []
-      }
-    },
-    {
-      "id": "SessionID-jl50wbx3",
+      "id": "SessionID-jl9pkjfe",
       "progress": {
         "finishedLevels": [
-          1
+          1,
+          2
         ]
       },
       "name": "paweł"
