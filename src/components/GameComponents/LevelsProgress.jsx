@@ -23,7 +23,7 @@ export default class LevelsProgress extends Component {
 
     getAvailableLevels = () => {
         return [...this.state.progress, (Math.max.apply(Math, [...this.state.progress, 0]) || 0) + 1]
-    }
+    };
 
     render() {
 
@@ -56,7 +56,6 @@ export default class LevelsProgress extends Component {
                         </div>
                     </div>
                 </div>
-
             </Fragment>
 
         );
