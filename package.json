@@ -50,7 +50,8 @@
     "react-icons": "^3.0.5",
     "react-router-dom": "^4.3.1",
     "react-sound": "^1.2.0",
-    "react-tooltip": "^3.6.1"
+    "react-tooltip": "^3.6.1",
+    "server": "^1.0.18"
   },
   "repository": {
     "type": "git",
