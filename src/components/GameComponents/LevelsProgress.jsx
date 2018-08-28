@@ -50,7 +50,7 @@ export default class LevelsProgress extends Component {
                         <div className="col-sm-3">
                             <div className='my-level-progress-style justify-content-center'>
                                 <p className='align-self-center text-center'>{this.getAvailableLevels().map((levelNum) => {
-                                    return <Link key={levelNum} to={`/level/${levelNum}`}> Zadanie {levelNum} </Link>
+                                    return <Link key={levelNum} to={`/level/${levelNum}`}> Zagadka {levelNum} </Link>
                                 })}</p>
                             </div>
                         </div>
