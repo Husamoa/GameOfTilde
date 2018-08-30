@@ -1,6 +1,8 @@
 .my-row-end-game {
   min-height: 50vh;
-
+  .row {
+   margin-top: 3vh;
+  }
   @media only screen and (max-width: 600px) {
     min-height: 50vh;
   }

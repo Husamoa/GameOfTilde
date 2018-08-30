@@ -46,89 +46,84 @@ export default class EndOfGame extends Component {
                             </div>
                         </div>
                         <div className="col-sm-3">
-                            <div className='justify-content-center'>
                                 <Link to='/levels-progress'>
                                     <button className='btn btn-info'> Powrót do mapy</button>
                                 </Link>
-                            </div>
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className="col-md-12-">
-                            <p className='text-center'>Jeśli podobała Ci się zabawa dołącz do nas aby zobaczyć inne gry
-                                i być na bieżąco kiedy powstaną kolejne.</p>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-md-3">
-
-                        </div>
-                        <div className="col-md-6">
-                            <div className="row align-items-center">
-                                <div className="col-4 align-items-center">
-                                    <IconContext.Provider
-                                        value={{color: "darkblue", className: "global-class-name", size: "3em"}}>
-                                        <div>
-                                            <FaFacebook/>
-                                        </div>
-                                    </IconContext.Provider>
-                                </div>
-                                <div className="col-4 justify-content-center">
-                                    <IconContext.Provider
-                                        value={{color: "blue", className: "global-class-name", size: "3em"}}>
-                                        <div>
-                                            <FaTwitter/>
-                                        </div>
-                                    </IconContext.Provider>
-                                </div>
-                                <div className="col-4 justify-content-center">
-                                    <IconContext.Provider
-                                        value={{color: "red", className: "global-class-name", size: "3em"}}>
-                                        <div>
-                                            <FaInstagram/>
-                                        </div>
-                                    </IconContext.Provider>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-
-                        </div>
-                    </div>
-                    <div className='row'>
+                    <div className='row my-row-end-game'>
                         <div className="col-md-12">
-                            <p className='text-center'> Jeśli jesteś dobrym i fajnym pracodawcą zobacz kod źródłowy na GitHub </p>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-md-3">
-
-                        </div>
-                        <div className="col-md-6">
-                            <div className="row align-items-center">
-                                <div className="col-4 align-items-center">
-
+                            <div className='row'>
+                                <div className="col-md-12-">
+                                    <p className='text-center'>Jeśli podobała Ci się zabawa dołącz do nas aby zobaczyć
+                                        inne
+                                        gry i być na bieżąco kiedy powstaną kolejne.</p>
                                 </div>
-                                <div className="col-4 justify-content-center">
-                                    <IconContext.Provider
-                                        value={{color: "black", className: "global-class-name", size: "3em"}}>
-                                        <div>
-                                            <FaGithub/>
+                            </div>
+                            <div className='row'>
+                                <div className="col-md-3"/>
+                                <div className="col-md-6">
+                                    <div className="row align-items-center">
+                                        <div className="col-4 align-items-center">
+                                            <IconContext.Provider
+                                                value={{
+                                                    color: "darkblue",
+                                                    className: "global-class-name",
+                                                    size: "3em"
+                                                }}>
+                                                <div>
+                                                    <FaFacebook/>
+                                                </div>
+                                            </IconContext.Provider>
                                         </div>
-                                    </IconContext.Provider>
+                                        <div className="col-4 justify-content-center">
+                                            <IconContext.Provider
+                                                value={{color: "blue", className: "global-class-name", size: "3em"}}>
+                                                <div>
+                                                    <FaTwitter/>
+                                                </div>
+                                            </IconContext.Provider>
+                                        </div>
+                                        <div className="col-4 justify-content-center">
+                                            <IconContext.Provider
+                                                value={{color: "red", className: "global-class-name", size: "3em"}}>
+                                                <div>
+                                                    <FaInstagram/>
+                                                </div>
+                                            </IconContext.Provider>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-4 justify-content-center">
-
+                                <div className="col-md-3"/>
+                            </div>
+                            <div className='row'>
+                                <div className="col-md-12">
+                                    <p className='text-center'> Jeśli jesteś dobrym i fajnym pracodawcą zobacz kod
+                                        źródłowy
+                                        na GitHub </p>
                                 </div>
+                            </div>
+                            <div className='row'>
+                                <div className="col-md-3"/>
+                                <div className="col-md-6">
+                                    <div className="row align-items-center">
+                                        <div className="col-4 align-items-center"/>
+                                        <div className="col-4 justify-content-center">
+                                            <IconContext.Provider
+                                                value={{color: "black", className: "global-class-name", size: "3em"}}>
+                                                <div>
+                                                    <FaGithub/>
+                                                </div>
+                                            </IconContext.Provider>
+                                        </div>
+                                        <div className="col-4 justify-content-center"/>
 
+                                    </div>
+                                </div>
+                                <div className="col-md-6"/>
                             </div>
                         </div>
-                        <div className="col-md-6">
-
-                        </div>
                     </div>
-
                 </div>
             </Fragment>
 

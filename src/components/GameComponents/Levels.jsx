@@ -49,7 +49,6 @@ export default class Levels extends Component {
     };
 
 
-
     goToNextLevel = () => {
         loadOrCreateNewSession().then(session => {
             if (session.progress.finishedLevels.includes(Number(this.props.match.params.id))) {
@@ -101,31 +100,32 @@ export default class Levels extends Component {
     render() {
         return (
             <Fragment>
-                <div className='container'>
+                <div className='container my-level-style'>
                     <div className='row'>
-                        <div className='col-10'>
-                            <h1></h1>
-                        </div>
-                        <div className='col-2'>
+                        <div className='col-md-10'/>
+                        <div className='col-md-2'>
                             <Link to='/levels-progress'>
                                 <button className='btn btn-info'> Powrót do mapy</button>
                             </Link>
                         </div>
                     </div>
-
-                    <h2>Zagadka {this.props.match.params.id}.</h2>
-                    <div>
-                        {this.state.question}
-                    </div>
-                    <input type="text" className="form-control" aria-label="Large"
-                           aria-describedby="inputGroup-sizing-sm" value={this.state.userAnswer}
-                           onChange={this.onChangeAnswer} onKeyPress={this.handleKeyPress}
-                           ref={input => input && input.focus()}/>
-                    <div className="input-group-append">
-                        <button onClick={() => this.onSubmit()}
-                                className="btn btn-outline-secondary"
-                                type="button">Sprawdź
-                        </button>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h2>Zagadka {this.props.match.params.id}.</h2>
+                            <div>
+                                {this.state.question}
+                            </div>
+                            <input type="text" className="form-control" aria-label="Large"
+                                   aria-describedby="inputGroup-sizing-sm" value={this.state.userAnswer}
+                                   onChange={this.onChangeAnswer} onKeyPress={this.handleKeyPress}
+                                   ref={input => input && input.focus()}/>
+                            <div className="input-group-append">
+                                <button onClick={() => this.onSubmit()}
+                                        className="btn btn-outline-secondary"
+                                        type="button">Sprawdź
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Fragment>

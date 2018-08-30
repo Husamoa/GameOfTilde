@@ -17,6 +17,7 @@ export default class Music extends Component {
         };
         this.url = "http://pawelbialek.pl/lollypop.mp3";
         this.audio = new Audio(this.url);
+        this.audio.loop;
     }
 
     componentDidMount() {
@@ -31,6 +32,7 @@ export default class Music extends Component {
     play = () => {
         this.setState({play: true, pause: false, buttonIcon: 'volume-up', tooltipText: 'wycisz muzykę'});
         this.audio.play();
+        this.audio.loop;
     };
 
     pause = () => {
