@@ -27,6 +27,7 @@
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
+    "react-social-icons": "^3.0.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.21.0",
     "uniqid": "^5.0.3",

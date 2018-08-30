@@ -108,7 +108,7 @@ export default class Levels extends Component {
                         </div>
                         <div className='col-2'>
                             <Link to='/levels-progress'>
-                                <button className='btn btn-info my-btn-info'> Powrót do mapy</button>
+                                <button className='btn btn-info'> Powrót do mapy</button>
                             </Link>
                         </div>
                     </div>
