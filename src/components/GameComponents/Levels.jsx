@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 
 import {updateSession, loadOrCreateNewSession} from "./UserSession";
-import EndOfGame from "./EndOfGame";
+import {HintTooltip, MusicTooltip} from "./Tooltips";
 
 
 export default class Levels extends Component {
@@ -13,7 +13,10 @@ export default class Levels extends Component {
             alertClass: '',
             question: '',
             answer: '',
-            userAnswer: ''
+            userAnswer: '',
+            button1DisabledClass: 'disabled',
+            button2DisabledClass: 'disabled',
+            button3DisabledClass: 'disabled'
         }
     }
 
@@ -91,6 +94,7 @@ export default class Levels extends Component {
     };
 
     onSubmit = () => {
+        this.showHint();
         if (this.state.answer === this.state.userAnswer) {
             console.log('poprawna odpowiedź');
             this.setState({
@@ -112,6 +116,21 @@ export default class Levels extends Component {
         }
     };
 
+    showHint = () => {
+        if (this.state.userAnswer && this.state.button1DisabledClass === 'disabled') {
+            this.setState({
+                button1DisabledClass: 'active'
+            })
+        } else if (this.state.userAnswer && this.state.button1DisabledClass === 'active' && this.state.button2DisabledClass === 'disabled') {
+            this.setState({
+                button2DisabledClass: 'active'
+            })
+        } else if (this.state.userAnswer && this.state.button1DisabledClass === 'active' && this.state.button2DisabledClass === 'active') {
+            this.setState({
+                button3DisabledClass: 'active'
+            })
+        }
+    }
 
     render() {
         const wrong = this.state.visible ?
@@ -120,8 +139,29 @@ export default class Levels extends Component {
             <Fragment>
                 <div className='container my-level-style'>
                     <div className='row'>
-                        <div className='col-md-10'/>
-                        <div className='col-md-2'>
+                        <div className='col-md-6'/>
+                        <div className="col-md-4">
+                            <div data-tip data-for="hintTooltip"
+                                 className="btn-group d-flex flex-row justify-content-end" role="group"
+                                 aria-label="Basic example">
+                                <button data-tip data-for="hintTooltip1" type="button"
+                                        className={`btn btn-primary ${this.state.button1DisabledClass}`} onClick={this.showHint}>1
+                                </button>
+                                <button data-tip data-for="hintTooltip2" type="button"
+                                        className={`btn btn-primary ${this.state.button2DisabledClass}`} onClick={this.showHint}>2
+                                </button>
+                                <button data-tip data-for="hintTooltip3" type="button"
+                                        className={`btn btn-primary ${this.state.button3DisabledClass}`} onClick={this.showHint}>3
+                                </button>
+                                <HintTooltip id='hintTooltip1' place='bottom' type='info'
+                                             tooltipText='Wskazówka 1'/>
+                                <HintTooltip id='hintTooltip2' place='bottom' type='info'
+                                             tooltipText='Wskazówka 2'/>
+                                <HintTooltip id='hintTooltip3' place='bottom' type='info'
+                                             tooltipText='Wskazówka 3'/>
+                            </div>
+                        </div>
+                        <div className='col-md-2 text-center'>
                             <Link to='/levels-progress'>
                                 <button className='btn btn-info'> Powrót do mapy</button>
                             </Link>
@@ -133,10 +173,6 @@ export default class Levels extends Component {
                             <div>
                                 {this.state.question}
                             </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-12">
                             <div className='input-group mb-md-3'>
                                 <input type="text" className="form-control" placeholder='Wpisz odpowiedź'
                                        aria-label="answer" aria-describedby="basic-addon2"
@@ -152,6 +188,7 @@ export default class Levels extends Component {
                             </div>
                         </div>
                     </div>
+
                     <div className="row">
                         <div className="col-md-12">
                             <div className="text-center">
