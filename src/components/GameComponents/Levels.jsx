@@ -9,6 +9,8 @@ export default class Levels extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            visible: false,
+            alertClass: '',
             question: '',
             answer: '',
             userAnswer: ''
@@ -43,9 +45,16 @@ export default class Levels extends Component {
     };
 
     onChangeAnswer = (e) => {
+
         this.setState({
             userAnswer: e.target.value
         })
+
+        if (this.state.userAnswer.length <= 3) {
+            this.setState({
+                visible: false
+            })
+        }
     };
 
 
@@ -84,8 +93,15 @@ export default class Levels extends Component {
     onSubmit = () => {
         if (this.state.answer === this.state.userAnswer) {
             console.log('poprawna odpowiedź');
+            this.setState({
+                visible: false
+            })
             this.endOrNextLevel();
         } else {
+            this.setState({
+                visible: true,
+                alertClass: 'alert alert-danger'
+            })
             console.log('błędna odpowiedź');
         }
     };
@@ -98,6 +114,8 @@ export default class Levels extends Component {
 
 
     render() {
+        const wrong = this.state.visible ?
+            <div className={this.state.alertClass} role='alert'>Błędna odpowiedź. Spróbuj jeszcze raz!</div> : null;
         return (
             <Fragment>
                 <div className='container my-level-style'>
@@ -115,15 +133,29 @@ export default class Levels extends Component {
                             <div>
                                 {this.state.question}
                             </div>
-                            <input type="text" className="form-control" aria-label="Large"
-                                   aria-describedby="inputGroup-sizing-sm" value={this.state.userAnswer}
-                                   onChange={this.onChangeAnswer} onKeyPress={this.handleKeyPress}
-                                   ref={input => input && input.focus()}/>
-                            <div className="input-group-append">
-                                <button onClick={() => this.onSubmit()}
-                                        className="btn btn-outline-secondary"
-                                        type="button">Sprawdź
-                                </button>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className='input-group mb-md-3'>
+                                <input type="text" className="form-control" placeholder='Wpisz odpowiedź'
+                                       aria-label="answer" aria-describedby="basic-addon2"
+                                       value={this.state.userAnswer}
+                                       onChange={this.onChangeAnswer} onKeyPress={this.handleKeyPress}
+                                       ref={input => input && input.focus()}/>
+                                <div className="input-group-append">
+                                    <button onClick={() => this.onSubmit()}
+                                            className="btn btn-secondary"
+                                            type="button">Sprawdź
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="text-center">
+                                {wrong}
                             </div>
                         </div>
                     </div>
