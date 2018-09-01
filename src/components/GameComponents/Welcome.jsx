@@ -24,7 +24,6 @@ export default class Welcome extends Component {
         loadOrCreateNewSession().then(session => {
             this.setState({
                 name: session.name,
-                sessionId: session.id,
                 visible: !!session.name
             })
         })
@@ -46,10 +45,7 @@ export default class Welcome extends Component {
             this.setState({
                 visible: true
             });
-            loadOrCreateNewSession().then(data => {
-                data.name = this.state.name;
-                updateSession(data)
-            });
+            updateSession({ name: this.state.name })
         }
 
     };

@@ -22,7 +22,8 @@ export default class LevelsProgress extends Component {
     }
 
     getAvailableLevels = () => {
-        return [...this.state.progress, (Math.max.apply(Math, [...this.state.progress, 0]) || 0) + 1]
+        const maxFinishedLevel = (Math.max.apply(Math, [...this.state.progress, 0]));
+        return [...this.state.progress, maxFinishedLevel + 1].filter(Boolean); // we don't want zero
     };
 
     render() {

@@ -13,34 +13,31 @@ export const getUserSessionID = () => {
     return Cookie.get(COOKIE_NAME);
 };
 
-export const genUserSessionID = () => {
-    return uniqid('SessionID-');
-};
-
 export const createNewSession = ({ name } = {}) => {
     let session = {
-        id: genUserSessionID(),
-        name,
+        name: "",
         progress: {
-            finishedLevels: []
+            finishedLevels: [0]
         }
     };
-    return fetch('/sessions', {
+    return fetch('https://gameoftilde.firebaseio.com/sessions.json', {
         method: 'POST',
         body: JSON.stringify(session),
         headers: {"Content-Type" : "application/json"}
     })
         .then(resp => resp.json())
         .then(data => {
-            setUserSessionID(data.id);
+            setUserSessionID(data.name);
         });
 
 };
 
 export const loadSession = (id) => {
-    return fetch(`/sessions/${id}`).then(resp => {
+    return fetch(`https://gameoftilde.firebaseio.com/sessions/${id}.json`).then(resp => {
         return resp.json();
     }).then((data) => {
+
+        console.log("!!!!1", data);
         return data;
     }).catch(err => {
         console.log('Błąd', err);
@@ -52,7 +49,7 @@ export const loadOrCreateNewSession = () => {
 
     if (id) {
         return loadSession(id).then(session => {
-            if (session.id) {
+            if (session) {
                 return session;
             }
             return createNewSession();
@@ -61,19 +58,21 @@ export const loadOrCreateNewSession = () => {
     return createNewSession();
 };
 
-export const updateSession = ({ id, ...rest }) => {
+export const updateSession = ({ ...newSessionValues }) => {
 
-    console.log("updating session", { id, ...rest });
+    const id = getUserSessionID();
 
-    return fetch(`/sessions/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({ id, ...rest }),
-        headers: {"Content-Type" : "application/json"}
-    }).then(resp => {
-        return resp.json();
-    }).then((data) => {
-        return data;
-    }).catch(err => {
-        console.log('Błąd', err);
-    });
+    return loadOrCreateNewSession().then(session => {
+        fetch(`https://gameoftilde.firebaseio.com/sessions/${id}.json`, {
+            method: 'PATCH',
+            body: JSON.stringify({ ...session, ...newSessionValues }),
+            headers: {"Content-Type" : "application/json"}
+        }).then(resp => {
+            return resp.json();
+        }).then((data) => {
+            return data;
+        }).catch(err => {
+            console.log('Błąd', err);
+        });
+    })
 };

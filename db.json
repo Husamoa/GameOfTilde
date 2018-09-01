@@ -45,8 +45,11 @@
     {
       "id": "SessionID-jlj5chzh",
       "progress": {
-        "finishedLevels": []
-      }
+        "finishedLevels": [
+          1
+        ]
+      },
+      "name": "sadasd"
     }
   ]
 }
