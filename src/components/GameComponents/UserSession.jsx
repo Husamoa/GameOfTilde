@@ -25,7 +25,7 @@ export const createNewSession = ({ name } = {}) => {
             finishedLevels: []
         }
     };
-    return fetch('https://gameoftilde.firebaseio.com/sessions', {
+    return fetch('/sessions', {
         method: 'POST',
         body: JSON.stringify(session),
         headers: {"Content-Type" : "application/json"}
@@ -38,7 +38,7 @@ export const createNewSession = ({ name } = {}) => {
 };
 
 export const loadSession = (id) => {
-    return fetch(`https://gameoftilde.firebaseio.com/sessions/${id}`).then(resp => {
+    return fetch(`/sessions/${id}`).then(resp => {
         return resp.json();
     }).then((data) => {
         return data;
@@ -65,7 +65,7 @@ export const updateSession = ({ id, ...rest }) => {
 
     console.log("updating session", { id, ...rest });
 
-    return fetch(`https://gameoftilde.firebaseio.com/sessions/${id}`, {
+    return fetch(`/sessions/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ id, ...rest }),
         headers: {"Content-Type" : "application/json"}

@@ -35,7 +35,7 @@ export default class Levels extends Component {
     }
 
     loadData = () => {
-        fetch(`https://gameoftilde.firebaseio.com/questions/${this.props.match.params.id}`).then(resp => {
+        fetch(`/questions/${this.props.match.params.id}`).then(resp => {
             return resp.json();
         }).then((data) => {
             const question = data.question;
@@ -81,7 +81,7 @@ export default class Levels extends Component {
     };
 
     endOrNextLevel = () => {
-        return fetch(`https://gameoftilde.firebaseio.com/questions`).then(resp => {
+        return fetch(`/questions`).then(resp => {
             return resp.json();
         }).then((data) => {
             if (Number(this.props.match.params.id) >= data.length) {
