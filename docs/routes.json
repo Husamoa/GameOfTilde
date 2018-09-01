@@ -1,0 +1,6 @@
+{
+  "/api/*": "/$1",
+  "/:resource/:id/show": "/:resource/:id",
+  "/questions/:id": "/questions?id=:id",
+  "/sessions\\?id=:id": "/sessions/:id"
+}
