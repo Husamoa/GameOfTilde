@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 
 import {updateSession, loadOrCreateNewSession} from "./UserSession";
-import {HintTooltip, MusicTooltip} from "./Tooltips";
+import {HintTooltip} from "./Tooltips";
 
 
 export default class Levels extends Component {
@@ -13,6 +13,9 @@ export default class Levels extends Component {
             alertClass: '',
             question: '',
             answer: '',
+            hint1: '',
+            hint2: '',
+            hint3: '',
             userAnswer: '',
             button1DisabledClass: 'disabled',
             button2DisabledClass: 'disabled',
@@ -32,7 +35,7 @@ export default class Levels extends Component {
     }
 
     loadData = () => {
-        fetch(`/questions/${this.props.match.params.id}`).then(resp => {
+        fetch(`https://gameoftilde.firebaseio.com/questions/${this.props.match.params.id}`).then(resp => {
             return resp.json();
         }).then((data) => {
             const question = data.question;
@@ -78,7 +81,7 @@ export default class Levels extends Component {
     };
 
     endOrNextLevel = () => {
-        return fetch(`/questions`).then(resp => {
+        return fetch(`https://gameoftilde.firebaseio.com/questions`).then(resp => {
             return resp.json();
         }).then((data) => {
             if (Number(this.props.match.params.id) >= data.length) {
@@ -120,7 +123,8 @@ export default class Levels extends Component {
         if (this.state.userAnswer && this.state.button1DisabledClass === 'disabled') {
             this.setState({
                 button1DisabledClass: 'active'
-            })
+            });
+
         } else if (this.state.userAnswer && this.state.button1DisabledClass === 'active' && this.state.button2DisabledClass === 'disabled') {
             this.setState({
                 button2DisabledClass: 'active'
@@ -188,7 +192,13 @@ export default class Levels extends Component {
                             </div>
                         </div>
                     </div>
-
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="text-center">
+                                {this.state.hint1}
+                            </div>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-md-12">
                             <div className="text-center">

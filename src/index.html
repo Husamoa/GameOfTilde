@@ -5,10 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Final project for Coders Lab School">
     <meta name="author" content="Paweł Białek">
-    <link rel='shortcut icon' type='image/x-icon' href='./images/favicon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='./images/favicon.ico'/>
     <title> Game Of Tilde </title>
 </head>
 <body>
 <div id="root"></div>
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCeCo-ZJKr496k1ZTI_somCXg0e4ipXtJU",
+        authDomain: "gameoftilde.firebaseapp.com",
+        databaseURL: "https://gameoftilde.firebaseio.com",
+        projectId: "gameoftilde",
+        storageBucket: "gameoftilde.appspot.com",
+        messagingSenderId: "593019590651"
+    };
+    firebase.initializeApp(config);
+</script>
 </body>
 </html>

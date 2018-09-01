@@ -35,8 +35,8 @@ export default class EndOfGame extends Component {
                     <div className="row my-row-end-game justify-content-center">
                         <div className="col-sm-3 align-self-center">
                             <div className='avatar'>
-                                <img className="avatar-sad" src="./../../images/pixel-pink-sad.png"/>
-                                <img className="avatar-happy" src="./../../images/pixel-pink-happy.png"/>
+                                <img className="avatar-sad" src="./images/pixel-pink-sad.png"/>
+                                <img className="avatar-happy" src="./images/pixel-pink-happy.png"/>
                             </div>
                         </div>
                         <div className="col-sm-6 align-self-center">

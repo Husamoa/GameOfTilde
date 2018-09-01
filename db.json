@@ -3,41 +3,50 @@
     {
       "id": 1,
       "question": "włóż od tyłu i dodaj potas",
-      "answer": "żółwik"
+      "answer": "żółwik",
+      "hint1": "wskazówka 1",
+      "hint2": "wskazówka 2",
+      "hint3": "wskazówka 3"
     },
     {
       "id": 2,
       "question": "Nie je, nie pije, a chodzi i bije",
-      "answer": "zegar"
+      "answer": "zegar",
+      "hint1": "wskazówka 1",
+      "hint2": "wskazówka 2",
+      "hint3": "wskazówka 3"
     },
     {
       "id": 3,
       "question": "Dokończ przysłowie: jak na świętego Hieronima jest deszcz albo go ni ma, to pod koniec listopada pada albo ...",
-      "answer": "nie pada"
+      "answer": "nie pada",
+      "hint1": "wskazówka 1",
+      "hint2": "wskazówka 2",
+      "hint3": "wskazówka 3"
     },
     {
       "id": 4,
       "question": "Zabezpiecza telefon w środku małego forda",
-      "answer": "kpina"
+      "answer": "kpina",
+      "hint1": "wskazówka 1",
+      "hint2": "wskazówka 2",
+      "hint3": "wskazówka 3"
     },
     {
       "id": 5,
       "question": "Iwona bez pierwszej chwyta ryby w środki",
-      "answer": "wołowina"
+      "answer": "wołowina",
+      "hint1": "wskazówka 1",
+      "hint2": "wskazówka 2",
+      "hint3": "wskazówka 3"
     }
   ],
   "sessions": [
     {
-      "id": "SessionID-jlgh16pc",
+      "id": "SessionID-jlj5chzh",
       "progress": {
-        "finishedLevels": [
-          1,
-          2,
-          3,
-          4
-        ]
-      },
-      "name": "ania"
+        "finishedLevels": []
+      }
     }
   ]
 }
