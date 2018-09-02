@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 import {updateSession, loadOrCreateNewSession} from "./UserSession";
 import {HintTooltip} from "./Tooltips";
+import Typist from 'react-typist';
 
 
 export default class Levels extends Component {
@@ -24,26 +25,29 @@ export default class Levels extends Component {
     }
 
     componentDidMount() {
-        this.loadData();
+        this.checkIfLevelAvailalbe(null);
     }
 
     componentDidUpdate(prevProps) {
-        // Typical usage (don't forget to compare props):
-        if (this.props.match.params.id !== prevProps.match.params.id) {
-            this.loadData();
-        }
+        this.checkIfLevelAvailalbe(prevProps.match.params.id);
+    }
 
-        // loadOrCreateNewSession().then(session => {
-        //     console.log('session', session.progress.finishedLevels.map((el) => el))
-        //
-        //     if (this.props.match.params.id > session.progress.finishedLevels.includes(Number(this.props.match.params.id - 1))) {
-        //         return null
-        //     } else {
-        //         if (this.props.match.params.id !== prevProps.match.params.id) {
-        //             this.loadData();
-        //         }
-        //     }
-        // });
+    checkIfLevelAvailalbe = (prevId) => {
+        return loadOrCreateNewSession().then(session => {
+            console.log(session);
+            const maxFinishedLevel = (Math.max.apply(Math, [...session.progress.finishedLevels, 0]));
+            const available = [...session.progress.finishedLevels, maxFinishedLevel + 1].filter(Boolean);// we don't want zero
+
+            if (available.indexOf(Number(this.props.match.params.id)) === -1) {
+                return this.props.history.push('/not-found');
+            }
+
+            if (this.props.match.params.id !== prevId) {
+                this.loadData();
+
+            }
+
+        });
     }
 
     loadData = () => {
@@ -79,17 +83,13 @@ export default class Levels extends Component {
 
     goToNextLevel = () => {
         loadOrCreateNewSession().then(session => {
-            if (session.progress.finishedLevels.includes(Number(this.props.match.params.id))) {
-                let url = `/level/${Number(this.props.match.params.id) + 1}`;
-                this.props.history.push(url);
-            } else {
                 session.progress.finishedLevels.push(parseInt(this.props.match.params.id, 10));
                 session.progress.finishedLevels = session.progress.finishedLevels.filter(Boolean);
+                session.progress.finishedLevels = session.progress.finishedLevels.filter((value, index, arr) => arr.indexOf(value) == index ).sort((a,b) => a - b);
                 updateSession(session).then(() => {
                     let url = `/level/${Number(this.props.match.params.id) + 1}`;
                     this.props.history.push(url);
                 })
-            }
         });
     };
 
@@ -151,6 +151,16 @@ export default class Levels extends Component {
     }
 
     render() {
+        if (!this.state.question) {
+            return (
+                <div>
+                <Typist>
+                    ..............
+                </Typist>
+            </div>
+            );
+        }
+
         const wrong = this.state.visible ?
             <div className={this.state.alertClass} role='alert'>Błędna odpowiedź. Spróbuj jeszcze raz!</div> : null;
         return (
@@ -163,13 +173,16 @@ export default class Levels extends Component {
                                  className="btn-group d-flex flex-row justify-content-end" role="group"
                                  aria-label="Basic example">
                                 <button data-tip data-for="hintTooltip1" type="button"
-                                        className={`btn btn-primary ${this.state.button1DisabledClass}`} onClick={this.showHint}>1
+                                        className={`btn btn-primary ${this.state.button1DisabledClass}`}
+                                        onClick={this.showHint}>1
                                 </button>
                                 <button data-tip data-for="hintTooltip2" type="button"
-                                        className={`btn btn-primary ${this.state.button2DisabledClass}`} onClick={this.showHint}>2
+                                        className={`btn btn-primary ${this.state.button2DisabledClass}`}
+                                        onClick={this.showHint}>2
                                 </button>
                                 <button data-tip data-for="hintTooltip3" type="button"
-                                        className={`btn btn-primary ${this.state.button3DisabledClass}`} onClick={this.showHint}>3
+                                        className={`btn btn-primary ${this.state.button3DisabledClass}`}
+                                        onClick={this.showHint}>3
                                 </button>
                                 <HintTooltip id='hintTooltip1' place='bottom' type='info'
                                              tooltipText='Wskazówka 1'/>

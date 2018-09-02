@@ -41,8 +41,8 @@ export default class Music extends Component {
     render() {
         return (
             <Fragment>
-                <div data-tip data-for="musicTooltip" className='text-right'>
-                    <button className='my-btn-awesome' onClick={this.pausePlay}>
+                <div className='text-right'>
+                    <button data-tip data-for="musicTooltip" className='my-btn-awesome' onClick={this.pausePlay}>
                         <FontAwesomeIcon icon={this.state.buttonIcon}/>
                     </button>
                     <MusicTooltip id='musicTooltip' place='left' type='info' tooltipText={this.state.tooltipText}/>

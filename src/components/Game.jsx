@@ -5,6 +5,7 @@ import Welcome from './GameComponents/Welcome';
 import LevelsProgress from './GameComponents/LevelsProgress';
 import EndOfGame from './GameComponents/EndOfGame';
 import Level from './GameComponents/Levels';
+import NotFound from './GameComponents/NotFound'
 import MusicGame from './GameComponents/MusicGame'
 
 
@@ -20,6 +21,7 @@ export default class Game extends Component {
                                 <Route path='/levels-progress' component={LevelsProgress}/>
                                 <Route path='/level/:id' component={Level}/>
                                 <Route path='/end-of-game' component={EndOfGame}/>
+                                <Route component={NotFound}/>
                             </Switch>
                         </HashRouter>
                 </div>
