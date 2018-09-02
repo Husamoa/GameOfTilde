@@ -70,7 +70,7 @@ export default class Levels extends Component {
     onChangeAnswer = (e) => {
 
         this.setState({
-            userAnswer: e.target.value
+            userAnswer: e.target.value.toLowerCase()
         });
 
         if (this.state.userAnswer.length <= 3) {
