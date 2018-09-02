@@ -42,10 +42,10 @@ export default class LevelsProgress extends Component {
                         </div>
                         <div className="col-sm-6 justify-content-center">
                             <div className='avatar-say'>
-                                <p>Cześć {this.state.name}, jestem Tilde. Tata schował mi wszystkie
-                                    cukierki. Mój tata jest bardzo dowcipny i powiedział, że będę mogła je zjeść, jesli
-                                    rozwiążę wszystkie zagadki, które przygotował. Ale ja jestem sprytna i znalazłam
-                                    pomoc. Razem na pewno nam się uda. W drogę! </p>
+                                <p>Cześć {this.state.name},</p>
+                                <p>jestem Tilde i potrzebuję Twojej pomocy!!!</p>
+                                <p>Tata schował mi wszystkie cukierki i powiedział, że dostanę je z powrotem, jeśli
+                                    rozwiążę zagadki, które mi przygotował. to co? pomożesz?</p>
                             </div>
                         </div>
                         <div className="col-sm-3">

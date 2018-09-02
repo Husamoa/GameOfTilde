@@ -39,25 +39,24 @@ export default class EndOfGame extends Component {
                                 <img className="avatar-happy" src="./images/pixel-pink-happy.png"/>
                             </div>
                         </div>
-                        <div className="col-sm-6 align-self-center">
+                        <div className="col-sm-7 align-self-center">
                             <div className='avatar-say'>
-                                <p> Dziękuję {this.state.name}! {this.help()} mi dotrzeć do cukierków. Zjedzmy je razem!
-                                    Smacznego! </p>
+                                <p> Dziękuję {this.state.name}! {this.help()} mi odzyskać cukierki. Moje dzieciństwo
+                                    znów ma sens :-) </p>
                             </div>
                         </div>
-                        <div className="col-sm-3">
-                                <Link to='/levels-progress'>
-                                    <button className='btn btn-info'> Powrót do mapy</button>
-                                </Link>
+                        <div className="col-sm-2">
+                            <Link to='/levels-progress'>
+                                <button className='btn btn-info'> Powrót do mapy</button>
+                            </Link>
                         </div>
                     </div>
                     <div className='row my-row-end-game'>
                         <div className="col-md-12">
                             <div className='row'>
                                 <div className="col-md-12-">
-                                    <p className='text-center'>Jeśli podobała Ci się zabawa dołącz do nas aby zobaczyć
-                                        inne
-                                        gry i być na bieżąco kiedy powstaną kolejne.</p>
+                                    <p className='text-center'>Podobało ci się? już teraz dołącz do nas, żeby poznać
+                                        inne przygody tilde i zawsze na bieżąco móc jej pomóc.</p>
                                 </div>
                             </div>
                             <div className='row'>
@@ -72,7 +71,7 @@ export default class EndOfGame extends Component {
                                                     size: "3em"
                                                 }}>
                                                 <div>
-                                                    <FaFacebook/>
+                                                    <a href='https://www.facebook.com/The-Coders-1714363951933261/' target='_blank'><FaFacebook/></a>
                                                 </div>
                                             </IconContext.Provider>
                                         </div>
@@ -80,7 +79,7 @@ export default class EndOfGame extends Component {
                                             <IconContext.Provider
                                                 value={{color: "blue", className: "global-class-name", size: "3em"}}>
                                                 <div>
-                                                    <FaTwitter/>
+                                                    <a href='https://www.linkedin.com/in/pawel-bialek/' target='_blank'><FaTwitter/></a>
                                                 </div>
                                             </IconContext.Provider>
                                         </div>
@@ -88,7 +87,7 @@ export default class EndOfGame extends Component {
                                             <IconContext.Provider
                                                 value={{color: "red", className: "global-class-name", size: "3em"}}>
                                                 <div>
-                                                    <FaInstagram/>
+                                                    <a href='https://www.instagram.com/' target='_blank'><FaInstagram/></a>
                                                 </div>
                                             </IconContext.Provider>
                                         </div>
@@ -98,9 +97,8 @@ export default class EndOfGame extends Component {
                             </div>
                             <div className='row'>
                                 <div className="col-md-12">
-                                    <p className='text-center'> Jeśli jesteś dobrym i fajnym pracodawcą zobacz kod
-                                        źródłowy
-                                        na GitHub </p>
+                                    <p className='text-center'> Jeśli jesteś fajnym pracodawcą otwartym na niedoświadczonych acz zdolnych pracowników zobacz kod
+                                        źródłowy na GitHub </p>
                                 </div>
                             </div>
                             <div className='row'>
@@ -112,7 +110,7 @@ export default class EndOfGame extends Component {
                                             <IconContext.Provider
                                                 value={{color: "black", className: "global-class-name", size: "3em"}}>
                                                 <div>
-                                                    <FaGithub/>
+                                                    <a href="https://github.com/Husamoa/GameOfTilde" target='_blank'><FaGithub/></a>
                                                 </div>
                                             </IconContext.Provider>
                                         </div>

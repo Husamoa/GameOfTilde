@@ -117,6 +117,9 @@ ul {
 .my-level-style .row {
   height: 20vh; }
 
+.my-level-style .input-group {
+  margin-top: 3vh; }
+
 .my-btn-awesome {
   width: 50px;
   cursor: pointer; }
@@ -124,7 +127,8 @@ ul {
 .my-row-end-game {
   min-height: 50vh; }
   .my-row-end-game .row {
-    margin-top: 3vh; }
+    margin-top: 1vh;
+    margin-bottom: 2vh; }
   @media only screen and (max-width: 600px) {
     .my-row-end-game {
       min-height: 50vh; } }

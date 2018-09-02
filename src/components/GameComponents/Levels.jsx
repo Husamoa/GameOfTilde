@@ -32,6 +32,18 @@ export default class Levels extends Component {
         if (this.props.match.params.id !== prevProps.match.params.id) {
             this.loadData();
         }
+
+        // loadOrCreateNewSession().then(session => {
+        //     console.log('session', session.progress.finishedLevels.map((el) => el))
+        //
+        //     if (this.props.match.params.id > session.progress.finishedLevels.includes(Number(this.props.match.params.id - 1))) {
+        //         return null
+        //     } else {
+        //         if (this.props.match.params.id !== prevProps.match.params.id) {
+        //             this.loadData();
+        //         }
+        //     }
+        // });
     }
 
     loadData = () => {
@@ -175,7 +187,7 @@ export default class Levels extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md-12">
-                            <h2>Zagadka {this.props.match.params.id}.</h2>
+                            <h2>Zagadka {this.props.match.params.id}</h2>
                             <div>
                                 {this.state.question}
                             </div>
