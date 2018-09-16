@@ -4,7 +4,7 @@
 It's a final project for Coders Lab IT School. 
 
 ## Rules
-Tilde is a logic game in which you have to answer on questions and then you can level up. 
+Tilde is a logic game in which you have to answer the questions and then you can level up. 
 
 ## Used technologies
 > - React
