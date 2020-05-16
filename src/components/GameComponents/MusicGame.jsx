@@ -6,7 +6,7 @@ import {MusicTooltip} from "./Tooltips";
 
 library.add(faVolumeOff, faVolumeUp);
 
-export default class Music extends Component {
+export default class MusicGame extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,7 +20,7 @@ export default class Music extends Component {
     }
 
     componentDidMount() {
-        this.play();
+        this.pause();
     }
 
 
