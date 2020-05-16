@@ -4,13 +4,14 @@ import {Link} from "react-router-dom";
 import {updateSession, loadOrCreateNewSession} from "./UserSession";
 import {HintTooltip} from "./Tooltips";
 import Typist from 'react-typist';
-
+import { Player } from 'video-react';
 
 export default class Levels extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             visible: false,
+            correct: false,
             alertClass: '',
             question: '',
             answer: '',
@@ -21,14 +22,14 @@ export default class Levels extends Component {
             button1DisabledClass: 'disabled',
             button2DisabledClass: 'disabled',
             button3DisabledClass: 'disabled'
-        }
+        };
     }
 
     componentDidMount() {
         this.checkIfLevelAvailalbe(null);
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         this.checkIfLevelAvailalbe(prevProps.match.params.id);
     }
 
@@ -44,11 +45,11 @@ export default class Levels extends Component {
 
             if (this.props.match.params.id !== prevId) {
                 this.loadData();
-
             }
 
         });
     }
+
 
     loadData = () => {
         fetch(`https://gameoftilde.firebaseio.com/questions.json?orderBy="id"&equalTo=${this.props.match.params.id}`).then(resp => {
@@ -60,15 +61,17 @@ export default class Levels extends Component {
             this.setState({
                 question: question,
                 answer: answer,
-                userAnswer: ''
+                userAnswer: '',
+                correct: ''
             });
+            this.player.load();
+
         }).catch(err => {
             console.log('Błąd', err);
         });
     };
 
     onChangeAnswer = (e) => {
-
         this.setState({
             userAnswer: e.target.value.toLowerCase()
         });
@@ -115,12 +118,16 @@ export default class Levels extends Component {
         if (this.state.answer === this.state.userAnswer) {
             console.log('poprawna odpowiedź');
             this.setState({
-                visible: false
+                visible: false,
+                correct: true,
+                alertClass: 'alert alert-success'
+
             })
             this.endOrNextLevel();
         } else {
             this.setState({
                 visible: true,
+                correct: false,
                 alertClass: 'alert alert-danger'
             })
             console.log('błędna odpowiedź');
@@ -163,6 +170,10 @@ export default class Levels extends Component {
 
         const wrong = this.state.visible ?
             <div className={this.state.alertClass} role='alert'>Błędna odpowiedź. Spróbuj jeszcze raz!</div> : null;
+
+        const correct = this.state.correct ?
+            <div className={this.state.alertClass} role='alert'>Super! Bardzo dobra odpowiedź</div> : null;
+
         return (
             <Fragment>
                 <div className='container my-level-style'>
@@ -199,10 +210,18 @@ export default class Levels extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-12 d-fles justify-content-center">
                             <h2>Zagadka {this.props.match.params.id}</h2>
-                            <div>
-                                {this.state.question}
+                            <div className="d-flex justify-content-center">
+                              <Player
+                                ref={player => {
+                                  this.player = player;
+                                }}
+                                fluid={false}
+                                aspectRatio="16:9"
+                                >
+                                <source src={this.state.question} />
+                              </Player>
                             </div>
                             <div className='input-group mb-md-3'>
                                 <input type="text" className="form-control" placeholder='Wpisz odpowiedź'
@@ -231,6 +250,9 @@ export default class Levels extends Component {
                             <div className="text-center">
                                 {wrong}
                             </div>
+                            <div className="text-center">
+                                {correct}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -240,4 +262,3 @@ export default class Levels extends Component {
 
     }
 }
-
