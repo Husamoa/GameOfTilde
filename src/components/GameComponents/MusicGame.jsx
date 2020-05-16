@@ -15,7 +15,7 @@ export default class Music extends Component {
             buttonIcon: 'volume-up',
             tooltipText: ''
         };
-        this.url = "http://pawelbialek.pl/lollypop.mp3";
+        this.url = "http://mitraposadzki.com/music/gt-music.mp3";
         this.audio = new Audio(this.url);
     }
 
