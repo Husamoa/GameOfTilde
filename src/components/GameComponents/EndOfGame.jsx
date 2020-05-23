@@ -5,6 +5,8 @@ import {FaFacebook} from 'react-icons/fa'
 import {FaTwitter} from 'react-icons/fa'
 import {FaInstagram} from 'react-icons/fa'
 import {FaGithub} from 'react-icons/fa'
+import { Player } from 'video-react';
+
 
 import {Link} from "react-router-dom";
 
@@ -41,8 +43,7 @@ export default class EndOfGame extends Component {
                         </div>
                         <div className="col-sm-7 align-self-center">
                             <div className='avatar-say'>
-                                <p> Dziękuję {this.state.name}! {this.help()} mi odzyskać cukierki. Moje dzieciństwo
-                                    znów ma sens :-) </p>
+                                <p> Gratuluję {this.state.name}! Udało Ci się dotrzeć do końca :-) Oto Twoja nagroda</p>
                             </div>
                         </div>
                         <div className="col-sm-2">
@@ -55,8 +56,15 @@ export default class EndOfGame extends Component {
                         <div className="col-md-12">
                             <div className='row'>
                                 <div className="col-md-12-">
-                                    <p className='text-center'>Podobało ci się? już teraz dołącz do nas, żeby poznać
-                                        inne przygody tilde i zawsze na bieżąco móc jej pomóc.</p>
+                                  <Player
+                                    ref={player => {
+                                      this.player = player;
+                                    }}
+                                    fluid={false}
+                                    aspectRatio="4:2"
+                                    >
+                                    <source src="https://serwer1971789.home.pl/tailoredwebs/video/zyczenia.mp4" />
+                                  </Player>
                                 </div>
                             </div>
                             <div className='row'>
@@ -97,8 +105,7 @@ export default class EndOfGame extends Component {
                             </div>
                             <div className='row'>
                                 <div className="col-md-12">
-                                    <p className='text-center'> Jeśli jesteś fajnym pracodawcą otwartym na niedoświadczonych acz zdolnych pracowników zobacz kod
-                                        źródłowy na GitHub </p>
+                                    <p className='text-center'> Jeszcze raz gratuluję !!! :) I wszystkiego najlepszego :* </p>
                                 </div>
                             </div>
                             <div className='row'>
@@ -128,4 +135,3 @@ export default class EndOfGame extends Component {
         );
     }
 }
-

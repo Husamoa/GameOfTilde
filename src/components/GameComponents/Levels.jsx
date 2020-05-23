@@ -218,13 +218,13 @@ export default class Levels extends Component {
                                   this.player = player;
                                 }}
                                 fluid={false}
-                                aspectRatio="16:9"
+                                aspectRatio="4:1"
                                 >
                                 <source src={this.state.question} />
                               </Player>
                             </div>
                             <div className='input-group mb-md-3'>
-                                <input type="text" className="form-control" placeholder='Wpisz odpowiedź'
+                                <input type="text" className="form-control" placeholder='Wpisz hasło'
                                        aria-label="answer" aria-describedby="basic-addon2"
                                        value={this.state.userAnswer}
                                        onChange={this.onChangeAnswer} onKeyPress={this.handleKeyPress}

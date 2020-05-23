@@ -15,7 +15,7 @@ export default class MusicGame extends Component {
             buttonIcon: 'volume-up',
             tooltipText: ''
         };
-        this.url = "https://serwer1971789.home.pl/tailoredwebs/music/gt-music.mp3";
+        this.url = "https://serwer1971789.home.pl/tailoredwebs/music/perfect.mp3";
         this.audio = new Audio(this.url);
     }
 

@@ -43,9 +43,8 @@ export default class LevelsProgress extends Component {
                         <div className="col-sm-6 justify-content-center">
                             <div className='avatar-say'>
                                 <p>Cześć {this.state.name},</p>
-                                <p>jestem Tilde i potrzebuję Twojej pomocy!!!</p>
-                                <p>Tata schował mi wszystkie cukierki i powiedział, że dostanę je z powrotem, jeśli
-                                    rozwiążę zagadki, które mi przygotował. to co? pomożesz?</p>
+                                <p>Instrukcja:</p>
+                                <p>Twoim zadaniem jest przejście gry. Na każdym etapie będzie filmik z zagadką/zadaniem, który nagrali Twoi znajomi. Po rozwiązaniu zagadki, musisz zadzwonić do danej osoby i powiedzieć jej rozwiązanie, a w zamian dostaniesz hasło do wpisania pod filmikiem (będzie to przymiotnik opisujący Ciebie wg danej osoby). Nie musisz się spieszyć, masz na to cały dzień a na końcu gry czeka Cię prezent :-) Powodzenia!!!</p>
                             </div>
                         </div>
                         <div className="col-sm-3">
