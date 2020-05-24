@@ -76,7 +76,7 @@ export default class Welcome extends Component {
                     <div className='row'>
                         <div className='col-sm-12 justify-content-center'>
                             <div className='title text-center'>
-                                <h1 className='h1'> Witaj w Game Of Tilde! </h1>
+                                <h1 className='h1'> Witaj w urodzinowej Game Of Tilde! </h1>
                             </div>
                         </div>
                     </div>
